@@ -1,0 +1,239 @@
+                MDALGO =   2
+               SCALING =       0
+                 CNEXP =     9.000   14.000
+           RANDOM_SEED =         315668883                0                0
+
+   original number of atomic DOF:          4
+   number of independent constraints:      0
+   number of active DOF:                   4
+
+========================================
+         MD step No.       1
+========================================
+
+  Atomic velocities initialized by STEP_tb
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>   -0.14195040E+02   -0.14246269E+02    0.51228460E-01    0.00000000E+00
+    0.00000000E+00
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000    297.239
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.00001   0.00002   0.00000   0.00000   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       2
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>   -0.13989814E+02   -0.14058963E+02    0.69148452E-01    0.97841837E-07
+    0.84910473E-06
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000    401.215
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.00063   0.00122   0.00001   0.00002   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       3
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>   -0.13471525E+02   -0.13508156E+02    0.36026290E-01    0.54014055E-03
+    0.64787022E-04
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000    209.033
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.00264   0.00281   0.00063   0.00122   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       4
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>   -0.13381538E+02   -0.13654765E+02    0.27008235E+00    0.28715819E-02
+    0.27334119E-03
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000   1567.078
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.00598   0.00386   0.00264   0.00281   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       5
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>   -0.81225650E+01   -0.12286741E+02    0.41581388E+01    0.54185929E-02
+    0.61862804E-03
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000  24126.452
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.03798   0.06014   0.00598   0.00386   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       6
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.27935843E+02    0.11647054E+00    0.26503365E+02    0.13120794E+01
+    0.39278669E-02
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000 153778.454
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.18034   0.22457   0.03798   0.06014   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       7
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.15162552E+03    0.86835446E+02    0.46474785E+02    0.18296642E+02
+    0.18648686E-01
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000 269657.099
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   0.45313   0.32101   0.18034   0.22457   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       8
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.31090697E+03    0.10708359E+03    0.16639231E+03    0.37384206E+02
+    0.46857601E-01
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000 965445.429
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   1.37164   1.51602   0.45313   0.32101   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.       9
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.11297885E+04    0.15570006E+03    0.14014175E+03    0.83380487E+03
+    0.14183979E+00
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000 813133.808
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   2.89882   1.53833   1.37164   1.51602   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.      10
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.10175447E+04    0.15647907E+03    0.22386040E+01    0.85852731E+03
+    0.29976272E+00
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000  12988.881
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   4.43713   1.53830   2.89882   1.53833   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.      11
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.10155231E+04    0.15654119E+03    0.29762013E-01    0.85849328E+03
+    0.45883763E+00
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000    172.686
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   5.97546   1.53837   4.43713   1.53830   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+
+========================================
+         MD step No.      12
+========================================
+
+  >Energies
+                    E_tot             E_pot             E_kin               EPS                ES
+   e_b>    0.10156114E+04    0.15636046E+03    0.63027819E-01    0.85856996E+03
+    0.61791453E+00
+
+  >Temperature
+               T_sim     T_inst
+   tmprt>    300.000    365.702
+
+  >Thermostat:
+           s(n+1) sdot(n+1)      s(n)   sdot(n)        Qs
+   s_b>   7.51383   1.53837   5.97546   1.53837   1.00000
+
+           RANDOM_SEED =         315668883               18                0
+

@@ -1,0 +1,149 @@
+LAMMPS (2 Aug 2023)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Loaded 1 plugins from /home/cup/softwares/deepmd-kit/lib/deepmd_lmp
+# liquid water
+
+units           metal
+boundary        p p p
+atom_style      full
+
+neighbor        1.0 bin
+neigh_modify    every 10 delay 0 check no
+
+read_data	system.data
+Reading data file ...
+  orthogonal box = (0 0 0) to (30 30 30)
+  2 by 2 by 2 MPI processor grid
+  reading atoms ...
+  1536 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 2.357 seconds
+  read_data CPU = 5.277 seconds
+
+pair_style	deepmd graph.pb
+Summary of lammps deepmd module ...
+  >>> Info of deepmd-kit:
+  installed to:       /home/cup/softwares/deepmd-kit
+  source:             
+  source branch:      HEAD
+  source commit:      cbf2de6
+  source commit at:   2024-07-27 05:11:58 +0000
+  support model ver.: 1.1 
+  build variant:      cpu
+  build with tf inc:  /home/cup/softwares/deepmd-kit/lib/python3.11/site-packages/tensorflow/include;/home/cup/softwares/deepmd-kit/lib/python3.11/site-packages/tensorflow/../../../../include
+  build with tf lib:  /home/cup/softwares/deepmd-kit/lib/python3.11/site-packages/tensorflow/libtensorflow_cc.so.2
+  build with pt lib:  torch;torch_library;/home/cup/softwares/deepmd-kit/lib/python3.11/site-packages/torch/lib/libc10.so
+  set tf intra_op_parallelism_threads: 0
+  set tf inter_op_parallelism_threads: 0
+  >>> Info of lammps module:
+  use deepmd-kit at:  /home/cup/softwares/deepmd-kitpair_coeff	* *
+
+velocity        all create 300.0 23456789
+fix             1 all npt temp 300.0 300.0 0.1 iso 1.0 1.0 1.0
+timestep        0.001
+
+thermo_style    custom step pe ke etotal temp press vol
+thermo          100
+dump 		1 all custom 100 traj_relax.lammpstrj id type element x y z
+dump_modify 1 element O H
+run             5000
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- USER-DEEPMD package:
+
+@article{Wang_ComputPhysCommun_2018_v228_p178,
+  author = {Wang, Han and Zhang, Linfeng and Han, Jiequn and E, Weinan},
+  doi = {10.1016/j.cpc.2018.03.016},
+  url = {https://doi.org/10.1016/j.cpc.2018.03.016},
+  year = 2018,
+  month = {jul},
+  publisher = {Elsevier {BV}},
+  volume = 228,
+  journal = {Comput. Phys. Commun.},
+  title = {{DeePMD-kit: A deep learning package for many-body potential energy representation and molecular dynamics}},
+  pages = {178--184}
+}
+@misc{Zeng_JChemPhys_2023_v159_p054801,
+  title  = {{DeePMD-kit v2: A software package for deep potential models}},
+  author =   {Jinzhe Zeng and Duo Zhang and Denghui Lu and Pinghui Mo and Zeyu Li
+         and Yixiao Chen and Mari{\'a}n Rynik and Li'ang Huang and Ziyao Li and 
+         Shaochen Shi and Yingze Wang and Haotian Ye and Ping Tuo and Jiabin
+         Yang and Ye Ding and Yifan Li and Davide Tisi and Qiyu Zeng and Han 
+         Bao and Yu Xia and Jiameng Huang and Koki Muraoka and Yibo Wang and 
+         Junhan Chang and Fengbo Yuan and Sigbj{\o}rn L{\o}land Bore and Chun
+         Cai and Yinnian Lin and Bo Wang and Jiayan Xu and Jia-Xin Zhu and 
+         Chenxing Luo and Yuzhi Zhang and Rhys E A Goodall and Wenshuo Liang
+         and Anurag Kumar Singh and Sikai Yao and Jingchao Zhang and Renata
+         Wentzcovitch and Jiequn Han and Jie Liu and Weile Jia and Darrin M
+         York and Weinan E and Roberto Car and Linfeng Zhang and Han Wang},
+  journal =  {J. Chem. Phys.},
+  volume =   159,
+  issue =    5,  
+  year =    2023,
+  pages  =   054801,
+  doi =      {10.1063/5.0155600},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 10 steps, delay = 0 steps, check = no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 3.5, bins = 9 9 9
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair deepmd, perpetual
+      attributes: full, newton on
+      pair build: full/bin
+      stencil: full/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 6.101 | 6.101 | 6.101 Mbytes
+   Step         PotEng         KinEng         TotEng          Temp          Press          Volume    
+         0  -7392.0373      59.524297     -7332.513       300            6303.8696      27000        
+       100  -7687.2384      481.0188      -7206.2196      2424.3149      31165.351      26382.286    
+       200  -7721.2555      419.65434     -7301.6012      2115.0406      10690.261      28976.296    
+       300  -7824.3648      352.71293     -7471.6519      1777.6586      7928.3795      31301.331    
+       400  -7898.2138      295.58824     -7602.6256      1489.7525      6023.2578      33025.609    
+       500  -7967.6445      271.02478     -7696.6197      1365.9537      3077.6456      34540.39     
+       600  -7997.0712      240.55626     -7756.515       1212.3936      5830.0928      35846.501    
+       700  -8041.4576      218.74553     -7822.7121      1102.4684      2000.0657      37107.027    
+       800  -8063.5322      205.35007     -7858.1821      1034.9559      3494.7813      38223.46     
+       900  -8080.8553      186.48238     -7894.373       939.86349      1088.5705      39197.433    
+      1000  -8103.2888      181.15664     -7922.1322      913.02201      1376.015       40136.428    
+      1100  -8106.9761      175.2972      -7931.6789      883.49067      1741.1669      41036.664    
+      1200  -8124.1268      172.33046     -7951.7963      868.53842      340.66323      41865.081    
+      1300  -8122.9317      167.46447     -7955.4672      844.01404      1100.5558      42649.466    
+      1400  -8140.0104      162.49063     -7977.5198      818.94608      1269.4125      43297.017    
+      1500  -8137.788       149.75449     -7988.0336      754.75646      579.36914      43891.921    
+      1600  -8150.3811      150.36786     -8000.0132      757.84781     -758.0781       44604.643    
+      1700  -8155.0894      144.75558     -8010.3338      729.56214      47.915253      45242.143    
+      1800  -8156.0071      149.72461     -8006.2825      754.60584      294.24378      45870.482    
+      1900  -8151.7709      145.6538      -8006.1171      734.08915      1462.7377      46431.889    
+      2000  -8167.2962      140.10833     -8027.1879      706.14018      100.39293      46882.532    
+      2100  -8155.515       137.54227     -8017.9728      693.20739      1238.4025      47412.829    
+      2200  -8171.0177      148.17339     -8022.8443      746.78779      522.74989      48028.871    
+      2300  -8167.7706      138.32099     -8029.4496      697.13209     -6.8625408      48575.973    
+      2400  -8175.6588      134.80063     -8040.8582      679.38962      229.12513      49045.004    
+      2500  -8171.2041      127.23843     -8043.9657      641.27642      409.13762      49384.769    
+      2600  -8173.6186      131.65708     -8041.9616      663.54628      797.15799      49749.341    
+      2700  -8175.7129      128.92424     -8046.7887      649.77285      686.37509      50134.43     
+      2800  -8183.9357      127.15532     -8056.7803      640.85758     -396.76298      50483.424    
+      2900  -8191.0062      132.25652     -8058.7497      666.5674       287.34516      50905.551    
+      3000  -8180.9352      129.16219     -8051.773       650.97211      532.54631      51338.427    
+      3100  -8180.4853      125.24269     -8055.2426      631.218       -673.35698      51711.954    
+      3200  -8185.1073      123.8905      -8061.2168      624.40301      1624.2485      52048.152    
+      3300  -8193.3711      127.5576      -8065.8135      642.88503      174.06651      52475.523    
+      3400  -8200.5517      127.20359     -8073.3481      641.10085      66.897212      52845.136    
+      3500  -8191.9828      122.68598     -8069.2969      618.33227      308.004

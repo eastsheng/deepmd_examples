@@ -1,0 +1,23 @@
+SYSTEM = Water
+
+! ab initio
+ISMEAR = 0        ! Gaussian smearing
+SIGMA  = 0.1      ! smearing in eV
+
+LREAL  = Auto     ! projection operators in real space
+
+ALGO   = VeryFast ! RMM-DIIS for electronic relaxation
+PREC   = Low      ! precision
+ISYM   = 0        ! no symmetry imposed
+
+! MD
+IBRION = 1        ! MD (treat ionic degrees of freedom)
+NSW    = 30       ! no of ionic steps
+POTIM  = 3.0      ! MD time step in fs
+
+MDALGO = 2        ! Nosé-Hoover thermostat
+SMASS  = 1.0      ! Nosé mass
+
+TEBEG  = 300     ! temperature at beginning
+TEEND  = 300     ! temperature at end
+ISIF   = 2        ! update positions; cell shape and volume fixed
