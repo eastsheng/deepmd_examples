@@ -1,0 +1,69 @@
+
+#!/bin/bash -l
+
+
+
+REMOTE_ROOT=$(pwd)
+echo 0 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail
+test $? -ne 0 && exit 1
+
+
+
+{ source /opt/intel/oneapi/setvars.sh; } 
+
+
+
+
+cd $REMOTE_ROOT
+cd sys-0004-0001/scale-1.000/000009
+test $? -ne 0 && exit 1
+if [ ! -f c90f361b031f3de786747ecb94bb06bfaec341ab_task_tag_finished ] ;then
+   ( mpirun -n 16 vasp_std ) 1>>fp.log 2>>fp.log 
+  if test $? -eq 0; then touch c90f361b031f3de786747ecb94bb06bfaec341ab_task_tag_finished; else echo 1 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail;fi
+fi &
+wait 
+
+cd $REMOTE_ROOT
+cd sys-0004-0001/scale-1.000/000026
+test $? -ne 0 && exit 1
+if [ ! -f 05e8865dff6a1ee76ed5c3c467a6e0fcc2e57df3_task_tag_finished ] ;then
+   ( mpirun -n 16 vasp_std ) 1>>fp.log 2>>fp.log 
+  if test $? -eq 0; then touch 05e8865dff6a1ee76ed5c3c467a6e0fcc2e57df3_task_tag_finished; else echo 1 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail;fi
+fi &
+wait 
+
+cd $REMOTE_ROOT
+cd sys-0004-0001/scale-1.000/000030
+test $? -ne 0 && exit 1
+if [ ! -f 1f5c8f894d5db68a46f4de2314367f28b764b3bc_task_tag_finished ] ;then
+   ( mpirun -n 16 vasp_std ) 1>>fp.log 2>>fp.log 
+  if test $? -eq 0; then touch 1f5c8f894d5db68a46f4de2314367f28b764b3bc_task_tag_finished; else echo 1 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail;fi
+fi &
+wait 
+
+cd $REMOTE_ROOT
+cd sys-0004-0001/scale-1.000/000022
+test $? -ne 0 && exit 1
+if [ ! -f 667450c58fd62c9bc59e424e61a75f6f27a94fd5_task_tag_finished ] ;then
+   ( mpirun -n 16 vasp_std ) 1>>fp.log 2>>fp.log 
+  if test $? -eq 0; then touch 667450c58fd62c9bc59e424e61a75f6f27a94fd5_task_tag_finished; else echo 1 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail;fi
+fi &
+wait 
+
+cd $REMOTE_ROOT
+cd sys-0004-0001/scale-1.000/000016
+test $? -ne 0 && exit 1
+if [ ! -f 22077883f32ecdca45ea09d1fa21ba4f1392aa78_task_tag_finished ] ;then
+   ( mpirun -n 16 vasp_std ) 1>>fp.log 2>>fp.log 
+  if test $? -eq 0; then touch 22077883f32ecdca45ea09d1fa21ba4f1392aa78_task_tag_finished; else echo 1 > $REMOTE_ROOT/590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail;fi
+fi &
+wait 
+
+
+cd $REMOTE_ROOT
+test $? -ne 0 && exit 1
+
+wait
+FLAG_IF_JOB_TASK_FAIL=$(cat 590535ad8d57e72e15471a5aeba11f5986e6433f_flag_if_job_task_fail)
+if test $FLAG_IF_JOB_TASK_FAIL -eq 0; then touch 590535ad8d57e72e15471a5aeba11f5986e6433f_job_tag_finished; else exit 1;fi
+

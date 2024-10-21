@@ -1,0 +1,56 @@
+{
+	"api_version": "1.0",
+	"train" :[
+		{
+			"command": "dp",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "/home/cup/workspace/deepmd/methane/dpgen_example/run/temp"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 8,
+				"gpu_per_node": 0,
+				"group_size": 4,
+				"source_list": ["/home/cup/softwares/deepmd-kit/bin/activate"]
+			}
+		}
+	],
+	"model_devi":[
+		{
+			"command": "mpirun -np 8 lmp_mpi -i input.lammps",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "/home/cup/workspace/deepmd/methane/dpgen_example/run/temp"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 8,
+				"gpu_per_node": 0,
+				"group_size": 5
+			}
+		}
+	],
+	"fp":[
+		{
+			"command": "ulimit -s unlimited && mpirun -np 8 vasp_std",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "/home/cup/workspace/deepmd/methane/dpgen_example/run/temp"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 8,
+				"gpu_per_node": 0,
+				"group_size": 4,
+				"source_list": ["/home/cup/softwares/vasp/env.sh"]
+			}
+		}
+	]
+}
