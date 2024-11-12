@@ -1,0 +1,56 @@
+{
+	"api_version": "1.0",
+	"train" :[
+		{
+			"command": "dp",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "./"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 28,
+				"gpu_per_node": 0,
+				"group_size": 4,
+				"source_list": ["/data/home/xxx/softwares/deepmd/deepmd-kit/bin/activate"]
+			}
+		}
+	],
+	"model_devi":[
+		{
+			"command": "mpirun -np 28 lmp_mpi -i input.lammps",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "./"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 28,
+				"gpu_per_node": 1,
+				"group_size": 5
+			}
+		}
+	],
+	"fp":[
+		{
+			"command": "ulimit -s unlimited && mpirun -np 28 vasp_std",
+			"machine": {
+				"batch_type": "Shell",
+				"context_type": "local",
+				"local_root" : "./",
+				"remote_root": "./"
+			},
+			"resources": {
+				"number_node": 1,
+				"cpu_per_node": 28,
+				"gpu_per_node": 0,
+				"group_size": 8,
+				"source_list": ["/data/app/vasp.6.4.2/bin"]
+			}
+		}
+	]
+}
